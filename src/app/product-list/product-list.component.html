@@ -1,33 +1,37 @@
 <div class="container">
   <br>
   <h1>Добавить новый товар:</h1>
-  <button class="btn btn-success" (click)="showAdd()">Добавить новый товар</button>
+  <div class="button-wrapper">
+  <button class="btn btn-outline-success" (click)="showAdd()">Добавить новый товар</button>
+  </div>
   <div><br></div>
-
   <div class="form-group" *ngIf="isAdd">
-    <input type="text" placeholder="Введите название" class="form-control" [(ngModel)]="title"><br>
-    <input type="text" placeholder="Введите описание" class="form-control" [(ngModel)]="description"><br>
-    <input type="nubmer" placeholder="Введите стоимость" class="form-control" [(ngModel)]="price"><br>
-    <input type="text" placeholder="Введите ссылку на фото" class="form-control" [(ngModel)]="photo"><br>
-    <button class="btn btn-outline-success"  (click)="addProduct()">Добавить</button>
+    <input type="text" placeholder="Введите название товара" class="form-control" [(ngModel)]="title"><br>
+    <input type="text" placeholder="Введите описание товара" class="form-control" [(ngModel)]="description"><br>
+    <input type="nubmer" placeholder="Введите стоимость товара" class="form-control" [(ngModel)]="price"><br>
+    <input type="text" placeholder="Введите ссылку на фото товара" class="form-control" [(ngModel)]="photo"><br>
+    <div class="button-wrapper">
+      <button class="btn btn-outline-success" (click)="addProduct()">Добавить</button>
+    </div>
   </div>
   <br>
-
   <h1>Список товаров:</h1>
-  <mat-card class="example-card" *ngFor="let product of products">
-    <mat-card-header>
-      <mat-card-title>{{product.title}}</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="{{product.photo}}" alt="{{product.photo}}">
-    <mat-card-content>
-      <p>
-        {{product.description}}
-      </p>
-      <mat-card-title>{{product.price}} ₽</mat-card-title>
-    </mat-card-content>
+  <div class="mat-card" *ngFor="let product of products">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{product.title}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{product.photo}}" alt="{{product.photo}}">
+      <mat-card-content>
+        <p>
+          {{product.description}}
+        </p>
+        <mat-card-title>{{product.price}} ₽</mat-card-title>
+      </mat-card-content>
 
-    <mat-card-actions>
-      <button mat-button (click)="deleteProduct(product)">Удалить</button>
-    </mat-card-actions>
-  </mat-card>
+      <mat-card-actions>
+        <button mat-button (click)="deleteProduct(product)">Удалить</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>
